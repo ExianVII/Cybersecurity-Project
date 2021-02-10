@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="745e2f33-a93b-40cb-8c81-60067130f22a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/front-end/Sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/Sign up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/js/jqSignupValidation.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/js/signup.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/php/CreateBlog.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/CreateBlog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/updateBlogForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/updateBlogForm.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,17 +47,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../cybersec-test-github/music-blog-test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../cybersec_project.sql" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

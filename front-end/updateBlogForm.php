@@ -1,16 +1,10 @@
 <?php
+require 'php/db_connect.php';
+if(isset($_GET)) {
 
-if(isset($_GET){
+   $db_connection = ConnectToDB();
 
-    $host = '127.0.0.1';
-    $db = "cyberproject";
-    $user = "root";
-    $password="";
-    $charset="utf8mb4";
-
-    $db_connection = "mysql:host=$host;dbname=$db;charset=$charset";
-
-    $sql = "SELECT FROM blog WHERE id = :id AND user_id = :user_id";
+    $sql = "SELECT * FROM posts WHERE post_id = :id AND post_author = :user_id";
     $query = $db_connection->prepare($sql);
 
     $query->bindParam(':id', $_GET["blog_id"]);
