@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="745e2f33-a93b-40cb-8c81-60067130f22a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/front-end/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/Login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/Sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/Sign up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/css/clean-blog.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/css/clean-blog.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/mail/contact_me.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/mail/contact_me.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/php/existing_user_handlers.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/existing_user_handlers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/php/user_creation_handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/user_creation_handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/js/jqSignupValidation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/js/signup.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +44,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../cybersec-test-github/music-blog-test" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -85,7 +79,9 @@
       <workItem from="1612744986638" duration="1740000" />
       <workItem from="1612746824637" duration="8286000" />
       <workItem from="1612755697016" duration="3588000" />
-      <workItem from="1612796535355" duration="21237000" />
+      <workItem from="1612796535355" duration="21831000" />
+      <workItem from="1612894208111" duration="11000" />
+      <workItem from="1612918273377" duration="7556000" />
     </task>
     <servers />
   </component>
