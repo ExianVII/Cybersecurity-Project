@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/front-end/php/CreateBlog.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/CreateBlog.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/updateBlogForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/updateBlogForm.php" afterDir="false" />
     </list>
+    <list default="true" id="745e2f33-a93b-40cb-8c81-60067130f22a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,5 +105,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new exclusions" />
+    <option name="LAST_COMMIT_MESSAGE" value="new exclusions" />
   </component>
 </project>
