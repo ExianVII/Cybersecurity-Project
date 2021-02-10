@@ -75,7 +75,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
             <p>Feel free to post a blog about any music you like, or dislike?</p>
 
-            <form name="sentMessage" id="blogCreateForm" method="POST" action="CreateBlog.php">
+            <form name="sentMessage" id="blogCreateForm" method="POST" action="./php/CreateBlog.php">
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label for="cBlogName">Post Name</label>
