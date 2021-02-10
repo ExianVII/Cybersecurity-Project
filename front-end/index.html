@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php require 'php/db_connect.php'
+ include 'php/post-preview-indexpage.php'?>
 <head>
 
   <meta charset="utf-8">
@@ -47,6 +48,9 @@
           <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Sign%20up.html">Sign up</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -72,6 +76,11 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="post-preview">
+          <?php
+          //Here, you should load the content based on the original db.
+          //This is why the post-preview-indexpage is for. Call the function/php code here.
+
+          ?>
           <a href="post.html">
             <h2 class="post-title">
               Man must explore, and this is exploration at its greatest
@@ -165,7 +174,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
+          <p class="copyright text-muted">Copyright &copy; Maria Carolina, Alexandra Adelaida 2021</p>
         </div>
       </div>
     </div>
