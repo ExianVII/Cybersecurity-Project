@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="745e2f33-a93b-40cb-8c81-60067130f22a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/front-end/Sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/Sign up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/js/jqSignupValidation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/js/signup.js" beforeDir="false" />
-    </list>
+    <list default="true" id="745e2f33-a93b-40cb-8c81-60067130f22a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,17 +44,6 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Localhost" type="FirefoxRemoteDebugType" port="8086">
       <method v="2">
         <option name="LaunchBrowser.Before.Run" browser="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" url="localhost:8081/" />
@@ -99,5 +84,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new exclusions" />
+    <option name="LAST_COMMIT_MESSAGE" value="new exclusions" />
   </component>
 </project>
