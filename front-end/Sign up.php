@@ -1,4 +1,4 @@
-<? php session_start(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,9 +76,11 @@
             <div class="form-group">
                 <p>
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required data-validation-required-message="Please enter your email address.">
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="
+                       <?php if(isset($_SESSION['email'])) { echo $_SESSION['email']; unset($_SESSION['email']); }?>"
+                       placeholder="Enter email" required data-validation-required-message="Please enter your email address.">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </p>
+
             </div>
             <div class="form-group">
                 <p>
@@ -93,18 +95,18 @@
                 <p class="help-block text-danger"></p>
             </div>
             <div class="form-group">
-                Already a member? <a href="Login.html">Login</a>
+                <p>Already a member? <a href="Login.php">Login</a></p>
+                <p id="backendError" style="color: red">
+                    <?php
+                    if(isset($_SESSION['error'])) {
+                        echo $_SESSION['error'];
+                        unset($_SESSION['error']);
+                    }
+                    ?>
+                </p>
             </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary" id="registerButton" name="registerButton">Submit</button>
-                  <p id="backendError" style="color: red">
-                      <?php
-                        if(isset($_SESSION['error'])) {
-                            echo $_SESSION['error'];
-                            unset($_SESSION['error']);
-                        }
-                        ?>
-                  </p>
                 </div>
         </form>
     </div>

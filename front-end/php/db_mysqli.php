@@ -21,7 +21,7 @@
     {
         $types = $types ?: str_repeat("s", count($params));
         $stmt = $db->prepare($sql);
-        $stmt->bind_param($types,...$params);
+        @$stmt->bind_param($types, ...$params);
         $stmt->execute();
         return $stmt;
     }
