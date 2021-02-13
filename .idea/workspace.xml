@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="745e2f33-a93b-40cb-8c81-60067130f22a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front-end/php/db_mysqli.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a2a86640-f7b2-476b-a86b-e5ce372cc3fe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a2a86640-f7b2-476b-a86b-e5ce372cc3fe.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/Sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/Sign up.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/php/db_credentials.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/db_credentials.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/php/db_mysqli.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/db_mysqli.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/php/user_creation_handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/user_creation_handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/Sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/Sign up.html" afterDir="false" />
     </list>
     <list default="true" id="745e2f33-a93b-40cb-8c81-60067130f22a" name="Default Changelist" comment="" />
@@ -102,7 +103,7 @@
       <workItem from="1613134574260" duration="115000" />
       <workItem from="1613134712532" duration="6060000" />
       <workItem from="1613149027505" duration="3753000" />
-      <workItem from="1613227389744" duration="14092000" />
+      <workItem from="1613227389744" duration="17094000" />
     </task>
     <servers />
   </component>
