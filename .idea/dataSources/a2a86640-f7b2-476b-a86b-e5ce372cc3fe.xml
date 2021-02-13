@@ -748,29 +748,68 @@ SELECT|sys.sys_config
       <ObjectGrants>ALL PRIVILEGES!
 </ObjectGrants>
     </user>
-    <table id="232" parent="2" name="users"/>
-    <column id="233" parent="232" name="id">
+    <table id="232" parent="2" name="posts"/>
+    <table id="233" parent="2" name="users"/>
+    <column id="234" parent="232" name="post_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="235" parent="232" name="post_author">
+      <Position>2</Position>
+      <DataType>varchar(35)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="236" parent="232" name="post_title">
+      <Position>3</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="237" parent="232" name="post_content">
+      <Position>4</Position>
+      <DataType>longtext|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="238" parent="232" name="img_ref">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="239" parent="232" name="date_posted">
+      <Position>6</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="240" parent="232" name="post_author">
+      <ColNames>post_author</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="241" parent="232" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>post_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="242" parent="233" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="234" parent="232" name="email">
+    <column id="243" parent="233" name="email">
       <Position>2</Position>
       <DataType>varchar(55)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="235" parent="232" name="username">
+    <column id="244" parent="233" name="username">
       <Position>3</Position>
       <DataType>varchar(35)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="236" parent="232" name="password">
+    <column id="245" parent="233" name="password">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="237" parent="232" name="PRIMARY">
+    <key id="246" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
