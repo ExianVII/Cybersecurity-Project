@@ -11,6 +11,7 @@ if(isset($_GET){
     $db_connection = "mysql:host=$host;dbname=$db;charset=$charset";
 
     $sql = "SELECT FROM blog WHERE id = :id AND user_id = :user_id";
+  
     $query = $db_connection->prepare($sql);
 
     $query->bindParam(':id', $_GET["blog_id"]);
