@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="745e2f33-a93b-40cb-8c81-60067130f22a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/php/db_mysqli.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a2a86640-f7b2-476b-a86b-e5ce372cc3fe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a2a86640-f7b2-476b-a86b-e5ce372cc3fe.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/Sign up.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/Sign up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/js/jqSignupValidation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/js/signup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/php/CreateBlog.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/CreateBlog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/updateBlogForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/updateBlogForm.php" afterDir="false" />
     </list>
     <list default="true" id="745e2f33-a93b-40cb-8c81-60067130f22a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +33,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="ProjectId" id="1oB15R2HGqFNC3sjgOfqdZaDpDZ" />
   <component name="ProjectViewState">
@@ -46,10 +53,12 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../cybersec_project.sql" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
@@ -88,6 +97,12 @@
       <workItem from="1612796535355" duration="21831000" />
       <workItem from="1612894208111" duration="11000" />
       <workItem from="1612918273377" duration="7556000" />
+      <workItem from="1613099813583" duration="56000" />
+      <workItem from="1613134510082" duration="32000" />
+      <workItem from="1613134574260" duration="115000" />
+      <workItem from="1613134712532" duration="6060000" />
+      <workItem from="1613149027505" duration="3753000" />
+      <workItem from="1613227389744" duration="14092000" />
     </task>
     <servers />
   </component>
