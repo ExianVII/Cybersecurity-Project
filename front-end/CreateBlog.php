@@ -11,8 +11,12 @@ if(isset($_POST)){
 
     $db_connection = new PDO("mysql:host=$host;dbname=$db;charset=$charset");
 
-    $sql = "INSERT INTO blog VALUES(null, :user_id, :blog_title, :blog_content)";
+    //Alexandra, please this format to conform to the format present in the other pages I'm setting up.
+    //I'll replace the db script in this project.
+    $sql = "INSERT INTO posts VALUES(null, :user_id, :blog_title, :blog_content, date('Y/m/d'))";
 
+    //This will throw an error saying that your connection is null.
+    // PDO is incompatible with mysqli. Found out the hard way.
     $user_id = mysqli_real_escape_string($db_connection, $_POST["user_id"]);
     $blog_title = mysqli_real_escape_string($db_connection, $_POST["blog_title"]);
     $blog_content = mysqli_real_escape_string($db_connection, $_POST["blog_content"]);

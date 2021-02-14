@@ -16,6 +16,7 @@
     {
         throw new mysqli_sql_exception($e->getMessage(), $e->getCode());
     }
+date_default_timezone_set('America/Toronto');
 
     function prepared_query($db, $sql, $params, $types="")
     {
