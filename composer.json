@@ -1,0 +1,14 @@
+{
+    "name": "ma_ca/cybersecurity-project",
+    "description": "cybersecurity-app",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Exian",
+            "email": "yuuki.k90@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.2"
+    }
+}

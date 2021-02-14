@@ -9,7 +9,7 @@ if(isset($_POST)){
 
     $db_connection = "mysql:host=$host;dbname=$db;charset=$charset";
 
-    $sql = "INSERT INTO posts VALUES(null, :user_id, :blog_title, :blog_content)";
+    $sql = "INSERT INTO posts VALUES(null, :user_id, :blog_title, :blog_content, date('Y/m/d'))";
 
     $user_id = mysqli_real_escape_string($db_connection, $_POST["user_id"]);
     $blog_title = mysqli_real_escape_string($db_connection, $_POST["blog_title"]);

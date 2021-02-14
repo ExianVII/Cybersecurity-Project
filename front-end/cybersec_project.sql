@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 08, 2021 at 03:00 PM
+-- Generation Time: Feb 13, 2021 at 09:16 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -24,17 +24,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `posts`
+--
+
+DROP TABLE IF EXISTS `posts`;
+CREATE TABLE IF NOT EXISTS `posts` (
+  `post_id` bigint(20) NOT NULL,
+  `post_author` varchar(35) NOT NULL,
+  `post_title` varchar(50) NOT NULL,
+  `post_content` longtext NOT NULL,
+  `img_ref` text,
+  `date_posted` date NOT NULL,
+  PRIMARY KEY (`post_id`),
+  KEY `post_author` (`post_author`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `email` varchar(55) NOT NULL,
   `username` varchar(35) NOT NULL,
   `password` text NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`username`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`email`, `username`, `password`) VALUES
+('usertest', 'test@gmail.com', '1234567890');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
