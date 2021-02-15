@@ -1,6 +1,8 @@
 <?php
 
-if(!empty($_GET)) {
+if(isset($_GET){
+
+//Not completed
 
     $host = '127.0.0.1';
     $db = "cyberproject";
@@ -11,7 +13,7 @@ if(!empty($_GET)) {
     $db_connection = "mysql:host=$host;dbname=$db;charset=$charset";
 
     $sql = "SELECT FROM blog WHERE id = :id AND user_id = :user_id";
-  
+
     $query = $db_connection->prepare($sql);
 
     $query->bindParam(':id', $_GET["blog_id"]);
@@ -71,9 +73,6 @@ else{
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="post.html">Sample Post</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>

@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<?php
+include('php/post_display.php');
 
+if(isset($_GET["post"])){
+    $id = $_GET["post"];
+    $post_content = getSinglePost($id);
+}
+else{
+    $post_content = array(null, "-----","Not Found!", "<p>Sorry, the post was not found in the system.</p>
+    <a href='index.php'>Go back to Home Page</a>", date("Y-m-d"));
+}
+
+?>
+
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -49,38 +62,40 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="updateBlogForm.php">Update an old entry</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<?php var_dump($i); echo "TESTING IF PHP CAN BE RUN HERE" ?>
-
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/about-bg.jpg')">
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="page-heading">
-            <h1>About Me</h1>
-            <span class="subheading">This is what I do. PHP</span>
+          <div class="post-heading">
+          <?php
+            echo returnHeader($post_content[2], $post_content[4]);
+          ?>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <?php
+            echo returnBody($post_content[3]);
+          ?>
+        </div>
       </div>
     </div>
-  </div>
+  </article>
 
   <hr>
 

@@ -1,8 +1,22 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php require 'php/db_mysqli.php';
- include 'php/post-preview-indexpage.php'?>
+<?php include 'php/db_connect.php';
+ include 'php/post-preview-indexpage.php';
+
+ $conn = ConnectToDB();
+ $notFound = "<br/>";
+ $connection_state = false;
+
+ if($conn->connect_error){
+  $connection_state = true;
+    $notFound = "<div class='text-center' style='width:100%;background-color:darkRed;
+                    color:white'>
+                    <p>No posts were found at the moment!</p>
+                    </div>";
+ }
+?>
+
 <head>
 
   <meta charset="utf-8">
@@ -52,8 +66,8 @@
           {
               echo '
                 <li class="nav-item dropdown" >
-                  <a class="nav-link dropdown-toggle" href = "#" role="button" 
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > 
+                  <a class="nav-link dropdown-toggle" href = "#" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                   Welcome back, '.$_SESSION['user'].' </a >
                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="nav-link" href = "newBlogForm.php" > new Blog Entry </a >
@@ -93,68 +107,41 @@
     </div>
   </header>
 
+    <?php
+
+    echo $notFound;
+
+        //Submission message for the blog
+        if(isset($_GET["success"])){
+            if($_GET["success"] == "true")
+            {
+                echo "<div class='text-center' style='width:100%;background-color:green;
+                color:white'>
+                <p>Cool! Your last blog was successfully submitted!</p>
+                </div>";
+            }
+        }
+    ?>
+
   <!-- Main Content -->
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="post-preview">
-          <?php
-          //Here, you should load the content based on the original db.
-          //This is why the post-preview-indexpage is for. Call the function/php code here.
 
-          ?>
-          <a href="post.html">
-            <h2 class="post-title">
-              Man must explore, and this is exploration at its greatest
-            </h2>
-            <h3 class="post-subtitle">
-              Problems look mighty small from 150 miles up
-            </h3>
-          </a>
-          <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on September 24, 2019</p>
-        </div>
-        <hr>
-        <div class="post-preview">
-          <a href="post.html">
-            <h2 class="post-title">
-              I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-            </h2>
-          </a>
-          <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on September 18, 2019</p>
-        </div>
-        <hr>
-        <div class="post-preview">
-          <a href="post.html">
-            <h2 class="post-title">
-              Science has not yet mastered prophecy
-            </h2>
-            <h3 class="post-subtitle">
-              We predict too much for the next year and yet far too little for the next ten.
-            </h3>
-          </a>
-          <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on August 24, 2019</p>
-        </div>
-        <hr>
-        <div class="post-preview">
-          <a href="post.html">
-            <h2 class="post-title">
-              Failure is not an option
-            </h2>
-            <h3 class="post-subtitle">
-              Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-            </h3>
-          </a>
-          <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on July 8, 2019</p>
-        </div>
-        <hr>
+      <?php
+           if(!$connection_state){
+                $sql_query = "SELECT * from posts ORDER BY post_date";
+                $posts = $conn->prepare($sql_query);
+                $posts->execute();
+
+                $posts->bind_result($id, $user_id, $post_title, $post_content, $post_date);
+
+                while($posts->fetch()){
+                    $post_content_preview = substr($post_content, 0, 20);
+                    echo displayPostPreview($id, $post_title, $post_content_preview, $user_id, $post_date);
+                }
+           }
+      ?>
         <!-- Pager -->
         <div class="clearfix">
           <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
