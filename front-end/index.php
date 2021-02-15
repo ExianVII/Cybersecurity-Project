@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php include 'php/db_connect.php';
+ include 'php/post-preview-indexpage.php';
+
+ $conn = ConnectToDB();
+ $notFound = "<br/>";
+ $connection_state = false;
+
+ if($conn->connect_error){
+  $connection_state = true;
+    $notFound = "<div class='text-center' style='width:100%;background-color:darkRed;
+                    color:white'>
+                    <p>No posts were found at the moment!</p>
+                    </div>";
+ }
+?>
+
 <head>
 
   <meta charset="utf-8">
@@ -49,35 +65,66 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="updateBlogForm.php">Update an old entry</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<?php var_dump($i); echo "TESTING IF PHP CAN BE RUN HERE" ?>
-
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/about-bg.jpg')">
+  <header class="masthead" style="background-image: url('img/home-bg.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="page-heading">
-            <h1>About Me</h1>
-            <span class="subheading">This is what I do. PHP</span>
+          <div class="site-heading">
+            <h1>Clean Blog</h1>
+            <span class="subheading">A Blog Theme by Start Bootstrap</span>
           </div>
         </div>
       </div>
     </div>
   </header>
 
+    <?php
+
+    echo $notFound;
+
+        //Submission message for the blog
+        if(isset($_GET["success"])){
+            if($_GET["success"] == "true")
+            {
+                echo "<div class='text-center' style='width:100%;background-color:green;
+                color:white'>
+                <p>Cool! Your last blog was successfully submitted!</p>
+                </div>";
+            }
+        }
+    ?>
+
   <!-- Main Content -->
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
+
+      <?php
+           if(!$connection_state){
+                $sql_query = "SELECT * from posts ORDER BY post_date";
+                $posts = $conn->prepare($sql_query);
+                $posts->execute();
+
+                $posts->bind_result($id, $user_id, $post_title, $post_content, $post_date);
+
+                while($posts->fetch()){
+                    $post_content_preview = substr($post_content, 0, 20);
+                    echo displayPostPreview($id, $post_title, $post_content_preview, $user_id, $post_date);
+                }
+           }
+      ?>
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
       </div>
     </div>
   </div>
@@ -115,7 +162,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
+          <p class="copyright text-muted">Copyright &copy; Maria Carolina, Alexandra Adelaida 2021</p>
         </div>
       </div>
     </div>

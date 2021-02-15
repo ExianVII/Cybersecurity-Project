@@ -1,6 +1,6 @@
 <?php
-require 'php/db_connect.php';
-if(isset($_GET)) {
+
+if(isset($_GET){
 
    $db_connection = ConnectToDB();
 
@@ -64,9 +64,6 @@ else{
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="post.html">Sample Post</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>

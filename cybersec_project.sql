@@ -5,7 +5,7 @@
 -- Host: 127.0.0.1:3306
 -- Generation Time: Feb 08, 2021 at 03:00 PM
 -- Server version: 5.7.31
--- PHP Version: 7.3.21
+-- Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,6 +36,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
+
+DROP TABLE IF EXISTS `posts`;
+CREATE TABLE IF NOT EXISTS `posts` (
+   `id` bigint NOT NULL AUTO_INCREMENT,
+   `user_id` bigint NOT NULL,
+   `post_title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+   `post_content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+   `post_date` date NOT NULL,
+   PRIMARY KEY (`id`),
+    KEY `user_blog_fk` (`user_id`)
+    ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

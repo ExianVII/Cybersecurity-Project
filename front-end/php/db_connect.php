@@ -3,7 +3,8 @@ function ConnectToDB()
 {
     $Host = "localhost";
     $user = "root";
-    $pwd = 'u*NIc?"F*}db|A&Y&\Z/C+%>dd<$%F';
+    //$pwd = 'u*NIc?"F*}db|A&Y&\Z/C+%>dd<$%F';
+    $pwd = '';
     $DB = "cybersec_project";
 
     $conn = new mysqli($Host, $user, $pwd, $DB);
@@ -13,6 +14,7 @@ function ConnectToDB()
     {
         die("Connection failed: " . $conn->connect_error);
     }
+
     return $conn;
 }
 ?>
