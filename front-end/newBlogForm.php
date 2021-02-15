@@ -1,3 +1,7 @@
+<?php if(!isset($_SESSION['user'])) {
+    $_SESSION['error'] = "Access denied. Sign in or sign up to access this page";
+    header('location:index.php');
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

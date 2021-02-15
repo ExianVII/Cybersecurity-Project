@@ -1,6 +1,8 @@
 <?php
-
-if($_POST){
+require 'db_mysqli.php';
+//Check if the user is logged in first and foremost.
+if(isset($_SESSION['user']))
+{
     $host = '127.0.0.1';
     $db = "cyberproject";
     $user = "root";
@@ -9,9 +11,9 @@ if($_POST){
 
     $db_connection = "mysql:host=$host;dbname=$db;charset=$charset";
 
-    $sql = "UPDATE blog
-    SET blog_title = :blog_title, blog_content = :blog_content,
-    WHERE id = :id";
+    $sql = "UPDATE posts
+    SET post_title = :blog_title, post_content = :blog_content
+    WHERE post_author = :id";
 
     $blog_title = mysqli_real_escape_string($db_connection, $_POST["blog_title"]);
     $blog_content = mysqli_real_escape_string($db_connection, $_POST["blog_content"]);
@@ -25,7 +27,9 @@ if($_POST){
     $query->execute();
 }
 else{
-    header("location:updateCreateForm.php");
+    $_SESSION['error'] = "Access denied. Sign in or sign up to access this page";
+    header('location:index.php');
+    //header("location:updateCreateForm.php");
 }
 
 ?>

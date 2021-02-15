@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_GET){
+if(!empty($_GET)) {
 
     $host = '127.0.0.1';
     $db = "cyberproject";
