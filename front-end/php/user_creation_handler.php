@@ -2,6 +2,7 @@
 session_start();
 require 'db_mysqli.php';
 
+//In case the javascript fails, for some reason...
 if(empty($_POST['username'])      ||
     empty($_POST['email'])     ||
     empty($_POST['password'])     ||
@@ -30,7 +31,7 @@ else {
         header('Sign up.php');
     }
     else {
-        //verify user and email are unique
+        //verify email is unique
              $sqlVerification = "SELECT email FROM users WHERE email=?";
         if (isset($db)) {
             //echo $Email_address;
@@ -47,15 +48,16 @@ else {
 
             else
             {
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT); //Will use BCRYPT.
                 $sqlInsert = "INSERT INTO users (email, username, password) VALUES (?, ? ,?)";
-                prepared_query($db, $sqlInsert, [$email_address, $username, $password]);
+                prepared_query($db, $sqlInsert, [$email_address, $username, $hashed_password]);
                 $_SESSION['creationSuccess'] = "Congratulations! You've been successfully registered!";
                 header('location:../Login.php');
             }
 
         }
         else {
-            echo "db is null";
+            echo "Cannot resolve database connection";
         }
     }
 }

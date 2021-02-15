@@ -2,22 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="745e2f33-a93b-40cb-8c81-60067130f22a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a2a86640-f7b2-476b-a86b-e5ce372cc3fe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a2a86640-f7b2-476b-a86b-e5ce372cc3fe.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Cybersecurity-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Cybersecurity-Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cybersec_project.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/CreateBlog.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/CreateBlog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/Login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/Sign up.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/Sign up.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/mail/contact_me.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/mail/contact_me.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/newBlogForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/newBlogForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/php/CreateBlog.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/CreateBlog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/php/db_mysqli.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/db_mysqli.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/php/post_display.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/post_display.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/php/UpdateBlog.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/UpdateBlog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/php/existing_user_handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/existing_user_handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-end/php/user_creation_handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/php/user_creation_handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-end/updateBlogForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/updateBlogForm.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,13 +21,15 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="composer.json" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -53,6 +51,12 @@
     </file-type-list>
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="1oB15R2HGqFNC3sjgOfqdZaDpDZ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -122,6 +126,8 @@
       <workItem from="1613227389744" duration="17094000" />
       <workItem from="1613254733970" duration="936000" />
       <workItem from="1613255769882" duration="6098000" />
+      <workItem from="1613330296747" duration="6697000" />
+      <workItem from="1613347936004" duration="17129000" />
     </task>
     <servers />
   </component>

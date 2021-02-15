@@ -44,7 +44,7 @@
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Sign%20up.html">Sign up</a>
+                    <a class="nav-link" href="Sign%20up.php">Sign up</a>
                 </li>
             </ul>
         </div>

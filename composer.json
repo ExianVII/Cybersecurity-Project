@@ -9,6 +9,7 @@
         }
     ],
     "require": {
-        "phpmailer/phpmailer": "^6.2"
+        "phpmailer/phpmailer": "^6.2",
+      "ext-mysqli": "*"
     }
 }
