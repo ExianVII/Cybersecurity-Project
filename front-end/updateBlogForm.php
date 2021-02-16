@@ -10,7 +10,7 @@ if(!empty($_GET)) {
 
     $db_connection = "mysql:host=$host;dbname=$db;charset=$charset";
 
-    $sql = "SELECT FROM blog WHERE id = :id AND user_id = :user_id";
+    $sql = "SELECT * FROM posts WHERE post_id = :id AND post_author_id = :user_id";
   
     $query = $db_connection->prepare($sql);
 
@@ -27,7 +27,7 @@ if(!empty($_GET)) {
 
 }
 else{
-    header("location:post.html");
+    header("location:post.php");
     exit;
 }
 
@@ -73,7 +73,7 @@ else{
                     <a class="nav-link" href="about.html">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="post.html">Sample Post</a>
+                    <a class="nav-link" href="post.php">Sample Post</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>

@@ -1,7 +1,10 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php require 'php/db_mysqli.php'; ?>
+<?php
+session_cache_expire(1);
+session_start();
+require('php/post_display.php');
+?>
 <head>
 
   <meta charset="utf-8">
@@ -25,30 +28,31 @@
 </head>
 
 <body>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand" href="index.php">Start Bootstrap</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      Menu
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-          <!-- If user is logged in, show this.-!-->
-          <?php
-          if(isset($_SESSION['user']))
-          {
-              echo '
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.php">Start Bootstrap</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="index.php">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+              <!-- If user is logged in, show this.-->
+              <?php
+              if(isset($_SESSION['user']))
+              {
+                  echo '
                 <li class="nav-item dropdown" >
                   <a class="nav-link dropdown-toggle" href = "#" role="button" 
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > 
@@ -59,87 +63,58 @@
                     <a class="nav-link" href = "php/Logout.php" > Logout </a >
                 </div>
                 </li>';
-          }
-          else {
+              }
+              else {
 
-              echo '<!--user is not logged in-->
+                  echo '<!--user is not logged in-->
                     <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Sign%20up.php">Sign up</a>
                 </li>';
-          }
-          ?>
-      </ul>
+              }
+              ?>
+          </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+  <header class="masthead" style="background-color: black">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>Clean Blog</h1>
-            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+          <div class="post-heading">
+       <?php
+       $result = displayPost($_GET['post_selected']);?>
+              <h1><?php echo $result["post_title"]?></h1>
+            <span class="meta">Posted by
+              <a href="#"><?php echo$result["post_author"]?> </a>
+              on <?php echo $result["date_posted"] ?></span>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-          <?php
-          $sqlRetrievePosts = "SELECT * FROM posts";
+<article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <?php
+            $post = nl2br($result["post_content"], false);
+            $post = '<p>' . preg_replace('#(<br>[\r\n]+){2}#', '</p><p>', $post) . '</p>';
 
-              if (isset($db)) {
-                  $resultPosts = $db->query($sqlRetrievePosts);
-
-                  while ($row = $resultPosts->fetch_assoc()) {
-                      if (count($row) == 0) {
-                          echo "There are no posts to display";
-                          break;
-                      }
-                      $id = $row['post_id']; //only used to display the article
-                      $title = $row['post_title'];
-                      $preview = strlen($row['post_content']) > 50 ? substr($row['post_content'], 0, 50) . "..." : $row['post_content'];
-                      $author = $row['post_author'];
-                      $post_date = $row['date_posted'];
+            echo $post;
+            ?>
 
 
-                      echo "<div class='post-preview'>
-                <a href='post.php?post_selected=".htmlspecialchars($id)."' >
-                    <h2 class='post-title'>
-                      $title
-                      </h2>
-                    <h3 class='post-subtitle'>
-                      $preview
-                      </h3>
-                  </a>
-                   <p class='post-meta'>Posted by <a href='#'>$author</a> on $post_date</p>
-                    <hr>
-                </div>";
-
-                  }
-              }
-
-              else {
-                  echo "<h2 class='post-title'>Database Connection Failed</h2>";
-          }
-          ?>
-        <!-- Pager -->
         </div>
-    </div>
-  </div>
-      <div class="container clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
       </div>
+    </div>
+  </article>
   <hr>
 
   <!-- Footer -->
@@ -173,7 +148,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Maria Carolina, Alexandra Adelaida 2021</p>
+          <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
         </div>
       </div>
     </div>

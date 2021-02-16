@@ -1,10 +1,8 @@
 <?php
-
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    //$db = "";
+    //$db = null;
     try {
         include ('db_credentials.php');
-
         if (!empty($host) && !empty($user) && !empty($pwd) && !empty($dbname) && !empty($port)) {
             $db = new mysqli($host, $user, $pwd, $dbname, $port);
         }
