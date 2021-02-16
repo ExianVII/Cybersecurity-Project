@@ -81,15 +81,15 @@ if(!isset($_SESSION['user'])) {
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label for="cBlogName">Post Name</label>
-                        <input type="text" class="form-control" placeholder="Name" id="cBlogName"
-                               name="cBlogName" required data-validation-required-message="Please enter a name.">
+                        <input type="text" class="form-control" placeholder="Name" id="cPostName"
+                               name="cPostName" required data-validation-required-message="Please enter a name.">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label for="cBlogMessage">Message</label>
-                        <textarea rows="5" class="form-control" placeholder="Message" id="cBlogMessage" name="cBlogMessage"
+                        <textarea rows="5" class="form-control" placeholder="Message" id="cPostContent" name="cPostContent"
                                   required data-validation-required-message="Please enter a message."></textarea>
                         <p class="help-block text-danger"></p>
                     </div>
