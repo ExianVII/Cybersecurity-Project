@@ -12,14 +12,14 @@ else{
     else{
         //&& isset $_POST["user_id"]
         if(isset($_POST)){
-            $blog_title = trim($_POST["cPostName"]);
-            $blog_content = trim($_POST["cPostContent"]);
+            $post_title = trim($_POST["cPostName"]);
+            $post_content = trim($_POST["cPostContent"]);
             $today = date("Y/m/d");
-            $user_id = 1; // holder for now
+            $author = 1; // holder for now
 
             $sql_query = "INSERT INTO posts VALUES(null, ?, ?, ?, ?);";
             $insert = $conn->prepare($sql_query);
-            $insert->bind_param('isss', $user_id, $post_title, $post_content, $today);
+            $insert->bind_param('isss', $author, $post_title, $post_content, $today);
             $insert->execute();
 
             header("Location: ../index.php?success=true");

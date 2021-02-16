@@ -13,7 +13,7 @@ else if(!isset($_POST) || !isEmpty($_POST["postToUpdate"]){
 }
 else{
     $conn = ConnectToDB();
-    $sql_query = "UPDATE posts SET post_title = ?, post_content = ?, post_date = ? WHERE id = ?;";
+    $sql_query = "UPDATE posts SET post_title = ?, post_content = ?, post_date = ? WHERE post_id = ?;";
 
     $post_title = trim($_POST["uPostName"]);
     $post_content = trim($_POST["uPostContent"]);

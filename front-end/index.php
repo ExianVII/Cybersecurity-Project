@@ -9,7 +9,7 @@
  $conn = ConnectToDB();
  $notFound = "<br/>";
  $connection_state = false;
-$notFound = "<div class='text-center' style='width:100%;background-color:darkRed;
+ $notFound = "<div class='text-center' style='width:100%;background-color:darkRed;
                     color:white'>
                     <p>No posts were found at the moment!</p>
                     </div>";
@@ -148,16 +148,16 @@ $notFound = "<div class='text-center' style='width:100%;background-color:darkRed
 
       <?php
            if(!$connection_state){
-                $sql_query = "SELECT * from posts ORDER BY post_date";
+                $sql_query = "SELECT * from posts ORDER BY date_posted;";
                 $posts = $conn->prepare($sql_query);
                 $posts->execute();
 
-                $posts->bind_result($id, $user_id, $post_title, $post_content, $post_date);
+                $posts->bind_result($post_id, $post_author, $post_title, $post_content, $date_posted);
 
                 $found = false;
                 while($posts->fetch()){
                     $post_content_preview = substr($post_content, 0, 20);
-                    echo displayPostPreview($id, $post_title, $post_content_preview, $user_id, $post_date);
+                    echo displayPostPreview($post_id, $post_author, $post_title, $post_content_preview, $date_posted);
                     $found = true;
                 }
 

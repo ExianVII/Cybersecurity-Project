@@ -1,5 +1,5 @@
 <?php
-function displayPostPreview($post_id, $post_title, $post_content, $user_id, $post_date){
+function displayPostPreview($post_id, $post_author, $post_title, $post_content, $post_date){
 
     $post_preview = "<div class='post-preview'>
                       <a href='post.php?post=".$post_id."'>
@@ -8,7 +8,7 @@ function displayPostPreview($post_id, $post_title, $post_content, $user_id, $pos
                         </h3>
                       </a>
                       <p class='post-meta'>Posted by
-                        <a href='#'>". $user_id ."</a>
+                        <a href='#'>". $post_author ."</a>
                         on ". $post_date ."</p>";
 
      //Also gotta validate if the user was the author

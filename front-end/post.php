@@ -97,7 +97,7 @@ else{
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
           <?php
-            echo returnHeader($post_content[2], $post_content[4]);
+            echo returnHeader($post_content[2], $post_content[4], $post_content[1]);
           ?>
           </div>
         </div>
