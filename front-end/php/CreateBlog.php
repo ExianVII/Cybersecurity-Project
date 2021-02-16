@@ -23,6 +23,6 @@ else{
     else{
     $_SESSION['error'] = "Access denied. Sign in or sign up to access this page";
         header('location:../newBlogForm.php');
-    }
+        }
 }
 ?>

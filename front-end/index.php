@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <?php include 'php/db_connect.php';
  include 'php/post-preview-indexpage.php';
 
