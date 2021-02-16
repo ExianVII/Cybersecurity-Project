@@ -1,5 +1,4 @@
 <?php
-session_start();
 function displayPostPreview($post_id, $post_title, $post_content, $user_id, $post_date){
 
     $post_preview = "<div class='post-preview'>

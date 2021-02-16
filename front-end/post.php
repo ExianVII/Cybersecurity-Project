@@ -57,12 +57,33 @@ else{
         <li class="nav-item">
           <a class="nav-link" href="contact.html">Contact</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="newBlogForm.php">New Blog Entry</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="updateBlogForm.php">Update an old entry</a>
-        </li>
+        <?php
+
+        if(isset($_SESSION['user']))
+          {
+              echo '
+                <li class="nav-item dropdown" >
+                  <a class="nav-link dropdown-toggle" href = "#" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                  Welcome back, '.$_SESSION['user'].' </a >
+                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="nav-link" href = "newBlogForm.php" > new Blog Entry </a >
+                    <a class="nav-link" href = "updateBlogForm.php" > Update an old entry </a >
+                    <a class="nav-link" href = "php/Logout.php" > Logout </a >
+                </div>
+                </li>';
+          }
+          else {
+
+              echo '<!--user is not logged in-->
+                <li class="nav-item">
+                    <a class="nav-link" href="Sign%20up.php">Sign up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.php">Log In</a>
+                </li>';
+          }
+        ?>
       </ul>
     </div>
   </div>

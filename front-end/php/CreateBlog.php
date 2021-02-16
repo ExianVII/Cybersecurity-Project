@@ -2,7 +2,7 @@
 
 if(!isset($_SESSION['user'])) {
     $_SESSION['error'] = "Access denied. Sign in or sign up to access this page";
-    header('location:../index.php');
+    header('location:../front-end/Login.php');
 }
 else{
     if($conn->connect_error){

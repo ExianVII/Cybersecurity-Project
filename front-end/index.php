@@ -1,8 +1,9 @@
-<?php session_start(); ?>
+<?php  session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'php/db_connect.php';
+<?php
+ include 'php/db_connect.php';
  include 'php/post-preview-indexpage.php';
 
  $conn = ConnectToDB();
@@ -80,11 +81,11 @@ $notFound = "<div class='text-center' style='width:100%;background-color:darkRed
           else {
 
               echo '<!--user is not logged in-->
-                    <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Sign%20up.php">Sign up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.php">Log In</a>
                 </li>';
           }
           ?>

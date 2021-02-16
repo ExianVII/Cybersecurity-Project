@@ -5,7 +5,7 @@ require('db_mysqli.php');
 
 if(!isset($_SESSION['user'])) {
     $_SESSION['error'] = "Access denied. Sign in or sign up to access this page";
-    header('location:../index.php');
+    header('location:../front-end/Login.php');
 }
 else if(!isset($_POST) || !isEmpty($_POST["postToUpdate"]){
     header("Location: ../index.php?op_error=true");
