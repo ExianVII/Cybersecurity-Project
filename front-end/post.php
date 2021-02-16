@@ -1,25 +1,21 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'php/db_connect.php';
- include 'php/post-preview-indexpage.php';
+<?php
+include('php/post_display.php');
 
- $conn = ConnectToDB();
- $notFound = "<br/>";
- $connection_state = false;
+if(isset($_GET["post"])){
+    $id = $_GET["post"];
+    $post_content = getSinglePost($id);
+}
+else{
+    $post_content = array(null, "-----","Not Found!", "<p>Sorry, the post was not found in the system.</p>
+    <a href='index.php'>Go back to Home Page</a>", date("Y-m-d"));
+}
 
- if($conn->connect_error){
-  $connection_state = true;
-    $notFound = "<div class='text-center' style='width:100%;background-color:darkRed;
-                    color:white'>
-                    <p>No posts were found at the moment!</p>
-                    </div>";
- }
 ?>
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -61,95 +57,45 @@
         <li class="nav-item">
           <a class="nav-link" href="contact.html">Contact</a>
         </li>
-          <!-- If user is logged in, show this.-!-->
-          <?php
-          if(isset($_SESSION['user']))
-          {
-              echo '
-                <li class="nav-item dropdown" >
-                  <a class="nav-link dropdown-toggle" href = "#" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                  Welcome back, '.$_SESSION['user'].' </a >
-                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="nav-link" href = "newBlogForm.php" > new Blog Entry </a >
-                    <a class="nav-link" href = "updateBlogForm.php" > Update an old entry </a >
-                    <a class="nav-link" href = "php/Logout.php" > Logout </a >
-                </div>
-                </li>';
-          }
-          else {
-
-              echo '<!--user is not logged in-->
-                    <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Sign%20up.php">Sign up</a>
-                </li>';
-          }
-          ?>
+        <li class="nav-item">
+          <a class="nav-link" href="newBlogForm.php">New Blog Entry</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="updateBlogForm.php">Update an old entry</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>Clean Blog</h1>
-            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+          <div class="post-heading">
+          <?php
+            echo returnHeader($post_content[2], $post_content[4]);
+          ?>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-    <?php
-
-    echo $notFound;
-
-        //Submission message for the blog
-        if(isset($_GET["success"])){
-            if($_GET["success"] == "true")
-            {
-                echo "<div class='text-center' style='width:100%;background-color:green;
-                color:white'>
-                <p>Cool! Your last blog was successfully submitted!</p>
-                </div>";
-            }
-        }
-    ?>
-
-  <!-- Main Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-
-      <?php
-           if(!$connection_state){
-                $sql_query = "SELECT * from posts ORDER BY post_date";
-                $posts = $conn->prepare($sql_query);
-                $posts->execute();
-
-                $posts->bind_result($id, $user_id, $post_title, $post_content, $post_date);
-
-                while($posts->fetch()){
-                    $post_content_preview = substr($post_content, 0, 20);
-                    echo displayPostPreview($id, $post_title, $post_content_preview, $user_id, $post_date);
-                }
-           }
-      ?>
-        <!-- Pager -->
-        <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <?php
+            echo returnBody($post_content[3]);
+          ?>
         </div>
       </div>
     </div>
-  </div>
+  </article>
 
   <hr>
 
@@ -184,7 +130,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Maria Carolina, Alexandra Adelaida 2021</p>
+          <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
         </div>
       </div>
     </div>
