@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if(!isset($_SESSION['user'])) {
     $_SESSION['error'] = "Access denied. Sign in or sign up to access this page";
     header('location:../front-end/Login.php');
@@ -74,7 +76,7 @@ if(!isset($_SESSION['user'])) {
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="page-heading">
                     <h1>Create a New Blog Entry!</h1>
-                    <span class="subheading">Feel free to share your point of view to the community1</span>
+                    <span class="subheading">Feel free to share your point of view to the community!</span>
                 </div>
             </div>
         </div>

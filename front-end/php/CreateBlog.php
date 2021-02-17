@@ -1,10 +1,15 @@
 <?php
+session_start();
+include('db_connect.php');
 
 if(!isset($_SESSION['user'])) {
     $_SESSION['error'] = "Access denied. Sign in or sign up to access this page";
     header('location:../front-end/Login.php');
+    exit;
 }
 else{
+    $conn = ConnectToDB();
+
     if($conn->connect_error){
         header("Location: ../newBlogForm.php");
         exit;

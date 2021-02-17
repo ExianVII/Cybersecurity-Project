@@ -1,10 +1,9 @@
 <?php
 function ConnectToDB()
 {
-    $Host = "localhost";
+    $Host = "127.0.0.1";
     $user = "root";
-    //$pwd = 'u*NIc?"F*}db|A&Y&\Z/C+%>dd<$%F';
-    $pwd = '';
+    $pwd = 'nip123!';
     $DB = "cybersec_project";
 
     $conn = new mysqli($Host, $user, $pwd, $DB);

@@ -1,13 +1,17 @@
 <?php
 session_start();
-include('post_display.php');
+include('php/post_display.php');
 
 if(!isset($_SESSION['user'])) {
     $_SESSION['error'] = "Access denied. Sign in or sign up to access this page";
     header('location:../front-end/Login.php');
 }
 if(isset($_GET['post'])){
-    $post_info = getSinglePost($post_id);
+    $post_info = getSinglePost($_GET['post']);
+}
+else{
+    header('Location:index.php');
+    exit;
 }
 ?>
 
@@ -99,18 +103,20 @@ if(isset($_GET['post'])){
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label>Post Name</label>
+                        <p>Post Title</p>
                         <input type="text" class="form-control" placeholder="Name" id="uPostName" name="uPostName"
                                required data-validation-required-message="Please enter a name."
-                               value="<?php echo strlen($post_info[2]) > 0 ? $post_info[2] : '' ?>">
+                               value="<?php echo strlen($post_info[2]) > 0 ? trim($post_info[2]) : '' ?>">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label>Message</label>
+                        <p>Post Content</p>
                         <textarea rows="5" class="form-control" placeholder="Message" id="uPostContent" name="uPostContent"
                                   required data-validation-required-message="Please enter a message.">
-                                  <?php echo strlen($post_info[3]) > 0 ? $post_info[3] : '' ?>
+                                  <?php echo strlen($post_info[3]) > 0 ? trim($post_info[3]) : '' ?>
                                   </textarea>
                         <p class="help-block text-danger"></p>
                     </div>

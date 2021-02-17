@@ -11,8 +11,8 @@ function displayPostPreview($post_id, $post_author, $post_title, $post_content, 
                         <a href='#'>". $post_author ."</a>
                         on ". $post_date ."</p>";
 
-     //Also gotta validate if the user was the author
-             if(isset($_SESSION['user'])){
+             if(isset($_SESSION['user']) && $post_author == $_SESSION['user']){
+
                 $post_preview .= "<div style='width:100%'>
                                       <p class='post-meta'><a href='../front-end/updateBlogForm.php?post=".$post_id."'>
                                       Edit</a></p>

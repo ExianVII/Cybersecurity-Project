@@ -148,7 +148,7 @@
 
       <?php
            if(!$connection_state){
-                $sql_query = "SELECT * from posts ORDER BY date_posted;";
+                $sql_query = "SELECT * from posts ORDER BY date_posted ASC;";
                 $posts = $conn->prepare($sql_query);
                 $posts->execute();
 
