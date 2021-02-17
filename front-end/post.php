@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php
+session_start();
 include('php/post_display.php');
 
 if(isset($_GET["post"])){
@@ -89,7 +90,7 @@ else{
 </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+  <header class="masthead" style="background-image: url('https://wallpapercave.com/wp/0l0kzYB.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">

@@ -20,11 +20,11 @@ else{
             $post_title = trim($_POST["cPostName"]);
             $post_content = trim($_POST["cPostContent"]);
             $today = date("Y/m/d");
-            $author = 1; // holder for now
+            $author = $_SESSION['user'];
 
-            $sql_query = "INSERT INTO posts VALUES(null, ?, ?, ?, ?);";
+            $sql_query = "INSERT INTO posts(post_id, post_author, post_title, post_content, date_posted) VALUES(null, ?, ?, ?, ?);";
             $insert = $conn->prepare($sql_query);
-            $insert->bind_param('isss', $author, $post_title, $post_content, $today);
+            $insert->bind_param('ssss', $author, $post_title, $post_content, $today);
             $insert->execute();
 
             header("Location: ../index.php?success=true");

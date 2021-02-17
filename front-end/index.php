@@ -94,7 +94,7 @@
 </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+  <header class="masthead" style="background-image: url('https://i.pinimg.com/originals/c1/d7/09/c1d709bade1097ae3edabfe9603f95ed.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
