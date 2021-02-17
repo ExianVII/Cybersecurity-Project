@@ -67,7 +67,6 @@ else{
                               Welcome back, '.$_SESSION['user'].' </a >
                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="nav-link" href = "newBlogForm.php" > new Blog Entry </a >
-                                <a class="nav-link" href = "updateBlogForm.php" > Update an old entry </a >
                                 <a class="nav-link" href = "php/Logout.php" > Logout </a >
                             </div>
                             </li>';
