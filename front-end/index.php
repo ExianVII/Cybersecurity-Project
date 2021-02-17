@@ -1,20 +1,21 @@
-<?php session_start(); ?>
+<?php  session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'php/db_connect.php';
+<?php
+ include 'php/db_connect.php';
  include 'php/post-preview-indexpage.php';
 
  $conn = ConnectToDB();
  $notFound = "<br/>";
  $connection_state = false;
-
- if($conn->connect_error){
-  $connection_state = true;
-    $notFound = "<div class='text-center' style='width:100%;background-color:darkRed;
+ $notFound = "<div class='text-center' style='width:100%;background-color:darkRed;
                     color:white'>
                     <p>No posts were found at the moment!</p>
                     </div>";
+
+ if($conn->connect_error){
+  $connection_state = true;
  }
 ?>
 
@@ -72,7 +73,6 @@
                   Welcome back, '.$_SESSION['user'].' </a >
                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="nav-link" href = "newBlogForm.php" > new Blog Entry </a >
-                    <a class="nav-link" href = "updateBlogForm.php" > Update an old entry </a >
                     <a class="nav-link" href = "php/Logout.php" > Logout </a >
                 </div>
                 </li>';
@@ -80,11 +80,11 @@
           else {
 
               echo '<!--user is not logged in-->
-                    <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Sign%20up.php">Sign up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.php">Log In</a>
                 </li>';
           }
           ?>
@@ -110,8 +110,6 @@
 
     <?php
 
-    echo $notFound;
-
         //Submission message for the blog
         if(isset($_GET["success"])){
             if($_GET["success"] == "true")
@@ -119,6 +117,24 @@
                 echo "<div class='text-center' style='width:100%;background-color:green;
                 color:white'>
                 <p>Cool! Your last blog was successfully submitted!</p>
+                </div>";
+            }
+        }
+        else if(isset($_GET["updateSuccess"])){
+            if($_GET["updateSuccess"] == "true")
+            {
+                echo "<div class='text-center' style='width:100%;background-color:green;
+                color:white'>
+                <p>Cool! Your last blog was successfully updated!</p>
+                </div>";
+            }
+        }
+        else if(isset($_GET["op_error"])){
+            if($_GET["op_error"] == "true")
+            {
+                echo "<div class='text-center' style='width:100%;background-color:darkRed;
+                color:white'>
+                <p>An error happened during the submission. Please try again later.</p>
                 </div>";
             }
         }
@@ -131,16 +147,21 @@
 
       <?php
            if(!$connection_state){
-                $sql_query = "SELECT * from posts ORDER BY post_date";
+                $sql_query = "SELECT * from posts ORDER BY date_posted ASC;";
                 $posts = $conn->prepare($sql_query);
                 $posts->execute();
 
-                $posts->bind_result($id, $user_id, $post_title, $post_content, $post_date);
+                $posts->bind_result($post_id, $post_author, $post_title, $post_content, $date_posted);
 
+                $found = false;
                 while($posts->fetch()){
                     $post_content_preview = substr($post_content, 0, 20);
-                    echo displayPostPreview($id, $post_title, $post_content_preview, $user_id, $post_date);
+                    echo displayPostPreview($post_id, $post_author, $post_title, $post_content_preview, $date_posted);
+                    $found = true;
                 }
+
+                if(!$found || $connection_state)
+                    echo $notFound;
            }
       ?>
         <!-- Pager -->

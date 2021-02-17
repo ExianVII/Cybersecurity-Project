@@ -1,38 +1,18 @@
 <?php
+session_start();
+include('php/post_display.php');
 
-if(isset($_GET){
-
-//Not completed
-
-    $host = '127.0.0.1';
-    $db = "cyberproject";
-    $user = "root";
-    $password="";
-    $charset="utf8mb4";
-
-    $db_connection = "mysql:host=$host;dbname=$db;charset=$charset";
-
-    $sql = "SELECT FROM blog WHERE id = :id AND user_id = :user_id";
-
-    $query = $db_connection->prepare($sql);
-
-    $query->bindParam(':id', $_GET["blog_id"]);
-    $query->bindParam(':user_id', $_GET["user_id"]);
-
-    $query->execute();
-
-    $query->setFetchMode(PDO::FETCH_ASSOC);
-    $result = $query->fetchColumn();
-
-    //see what is the reuslt of fetchColumn
-    //print(htmlentities($result));
-
+if(!isset($_SESSION['user'])) {
+    $_SESSION['error'] = "Access denied. Sign in or sign up to access this page";
+    header('location:../front-end/Login.php');
+}
+if(isset($_GET['post'])){
+    $post_info = getSinglePost($_GET['post']);
 }
 else{
-    header("location:post.html");
+    header('Location:index.php');
     exit;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -77,12 +57,21 @@ else{
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="newBlogForm.html">New Blog Entry</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="updateBlogForm.html">Update an old entry</a>
-                </li>
+                <?php
+                    if(isset($_SESSION['user']))
+                      {
+                          echo '
+                            <li class="nav-item dropdown" >
+                              <a class="nav-link dropdown-toggle" href = "#" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                              Welcome back, '.$_SESSION['user'].' </a >
+                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link" href = "newBlogForm.php" > new Blog Entry </a >
+                                <a class="nav-link" href = "php/Logout.php" > Logout </a >
+                            </div>
+                            </li>';
+                      }
+                ?>
             </ul>
         </div>
     </div>
@@ -109,27 +98,32 @@ else{
         <div class="col-lg-8 col-md-10 mx-auto">
             <p>Update the values on this form and submit it to save the changes.</p>
 
-            <form name="sentMessage" id="blogUpdateForm" novalidate method="POST" action="">
+            <form name="sentMessage" id="blogUpdateForm" method="POST" action="php/UpdateBlog.php">
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label>Post Name</label>
-                        <input type="text" class="form-control" placeholder="Name" id="uBlogName" name="uBlogName"
-                               required data-validation-required-message="Please enter a name.">
+                        <p>Post Title</p>
+                        <input type="text" class="form-control" placeholder="Name" id="uPostName" name="uPostName"
+                               required data-validation-required-message="Please enter a name."
+                               value="<?php echo strlen($post_info[2]) > 0 ? trim($post_info[2]) : '' ?>">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label>Message</label>
-                        <textarea rows="5" class="form-control" placeholder="Message" id="uBlogMessage" name="uBlogMessage"
-                                  required data-validation-required-message="Please enter a message."></textarea>
+                        <p>Post Content</p>
+                        <textarea rows="5" class="form-control" placeholder="Message" id="uPostContent" name="uPostContent"
+                                  required data-validation-required-message="Please enter a message.">
+                                  <?php echo strlen($post_info[3]) > 0 ? trim($post_info[3]) : '' ?>
+                                  </textarea>
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <br>
-                <div id="uSubmitBtn"></div>
+                <input type="hidden" name="postToUpdate" value="<?php echo $_GET['post'] ?>"/>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary" id="updateBlogBtn">Send</button>
+                    <button type="submit" class="btn btn-primary" id="updatePostBtn">Send</button>
                 </div>
             </form>
         </div>
@@ -185,7 +179,6 @@ else{
 
 <!-- Custom scripts for this template -->
 <script src="js/clean-blog.min.js"></script>
-
 
 </body>
 </html>

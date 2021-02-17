@@ -1,7 +1,9 @@
 <?php
+session_start();
+
 if(!isset($_SESSION['user'])) {
     $_SESSION['error'] = "Access denied. Sign in or sign up to access this page";
-    header('location:index.php');
+    header('location:../front-end/Login.php');
 } ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,12 +47,21 @@ if(!isset($_SESSION['user'])) {
         <li class="nav-item">
           <a class="nav-link" href="contact.html">Contact</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="newBlogForm.php">New Blog Entry</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="updateBlogForm.php">Update an old entry</a>
-        </li>
+        <?php
+            if(isset($_SESSION['user']))
+                {
+                echo '
+                    <li class="nav-item dropdown" >
+                        <a class="nav-link dropdown-toggle" href = "#" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                        Welcome back, '.$_SESSION['user'].' </a >
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link" href = "newBlogForm.php" > new Blog Entry </a >
+                            <a class="nav-link" href = "php/Logout.php" > Logout </a >
+                        </div>
+                    </li>';
+                }
+        ?>
       </ul>
     </div>
   </div>
@@ -64,7 +75,7 @@ if(!isset($_SESSION['user'])) {
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="page-heading">
                     <h1>Create a New Blog Entry!</h1>
-                    <span class="subheading">Feel free to share your point of view to the community1</span>
+                    <span class="subheading">Feel free to share your point of view to the community!</span>
                 </div>
             </div>
         </div>
@@ -81,15 +92,15 @@ if(!isset($_SESSION['user'])) {
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label for="cBlogName">Post Name</label>
-                        <input type="text" class="form-control" placeholder="Name" id="cBlogName"
-                               name="cBlogName" required data-validation-required-message="Please enter a name.">
+                        <input type="text" class="form-control" placeholder="Name" id="cPostName"
+                               name="cPostName" required data-validation-required-message="Please enter a name.">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label for="cBlogMessage">Message</label>
-                        <textarea rows="5" class="form-control" placeholder="Message" id="cBlogMessage" name="cBlogMessage"
+                        <textarea rows="5" class="form-control" placeholder="Message" id="cPostContent" name="cPostContent"
                                   required data-validation-required-message="Please enter a message."></textarea>
                         <p class="help-block text-danger"></p>
                     </div>
